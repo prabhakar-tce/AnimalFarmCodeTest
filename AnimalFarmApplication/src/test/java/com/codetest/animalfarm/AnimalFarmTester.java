@@ -2,28 +2,41 @@ package com.codetest.animalfarm;
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.codetest.animalfarm.model.Chicken;
+import com.codetest.animalfarm.model.ClownFish;
+import com.codetest.animalfarm.model.Dolphin;
 import com.codetest.animalfarm.model.Duck;
+import com.codetest.animalfarm.model.Frog;
 import com.codetest.animalfarm.model.IFlyable;
 import com.codetest.animalfarm.model.ISingable;
 import com.codetest.animalfarm.model.ISwimmable;
 import com.codetest.animalfarm.model.IWalkable;
 import com.codetest.animalfarm.model.Parrot;
+import com.codetest.animalfarm.model.Shark;
 
 public class AnimalFarmTester {
 	Duck duck = null;
 	Chicken chicken = null;
 	Chicken rooster = null;
 	Parrot parrot = null;
+	Shark shark = null;
+	ClownFish clownFish = null;
+	Dolphin dolphin = null;
+	Frog frog = null;
 	@Before
 	public void setUp() {
 		duck = new Duck();
 		chicken = new Chicken();
 		rooster = new Chicken().addGender("M");
 		parrot = new Parrot();
+		shark = new Shark();
+		clownFish = new ClownFish();
+		dolphin = new Dolphin();
+		frog = new Frog();
 	}
 	@Test
 	public void testDuck() {
@@ -75,5 +88,59 @@ public class AnimalFarmTester {
 		parrot.livesWith(new Duck());
 		assertNotEquals("Anything", parrot.getSound());
 		assertEquals("Quack, quack", parrot.getSound());
+	}
+	
+	@Test
+	public void testShark() {
+		assertFalse(shark instanceof IFlyable);
+		assertTrue(shark instanceof ISwimmable);
+		assertFalse(shark instanceof ISingable);
+		assertFalse(shark instanceof IWalkable);
+		
+		assertNotEquals("Anything", shark.getSound());
+	}
+	
+	@Test
+	public void testClownFish() {
+		assertFalse(clownFish instanceof IFlyable);
+		assertTrue(clownFish instanceof ISwimmable);
+		assertFalse(clownFish instanceof ISingable);
+		assertFalse(clownFish instanceof IWalkable);
+		
+		assertNotEquals("Anything", clownFish.getSound());
+	}
+	
+	@Test
+	public void testDolphin() {
+		assertFalse(dolphin instanceof IFlyable);
+		assertTrue(dolphin instanceof ISwimmable);
+		assertFalse(dolphin instanceof ISingable);
+		assertFalse(dolphin instanceof IWalkable);
+		
+		assertNotEquals("Anything", dolphin.getSound());
+		assertEquals(null, dolphin.getSound());
+	}
+	
+	@Test
+	public void testFrog() {
+		assertFalse(frog instanceof IFlyable);
+		assertTrue(frog instanceof ISwimmable);
+		assertTrue(frog instanceof ISingable);
+		assertTrue(frog instanceof IWalkable);
+		
+		assertEquals("Croak, croak", frog.getSound());
+	}
+	
+	@After
+	public void tearDown() {
+		duck = null;
+		chicken = null;
+		rooster = null;
+		parrot = null;
+		shark = null;
+		clownFish = null;
+		dolphin = null;
+		frog = null;
+		
 	}
 }
