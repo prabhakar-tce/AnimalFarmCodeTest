@@ -6,10 +6,14 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.codetest.animalfarm.factory.AnimalFarmStatsMngr;
+import com.codetest.animalfarm.model.AnimalStatsDTO;
 import com.codetest.animalfarm.model.Butterfly;
+import com.codetest.animalfarm.model.Cat;
 import com.codetest.animalfarm.model.Caterpillar;
 import com.codetest.animalfarm.model.Chicken;
 import com.codetest.animalfarm.model.ClownFish;
+import com.codetest.animalfarm.model.Dog;
 import com.codetest.animalfarm.model.Dolphin;
 import com.codetest.animalfarm.model.Duck;
 import com.codetest.animalfarm.model.Frog;
@@ -31,6 +35,9 @@ public class AnimalFarmTester {
 	Frog frog = null;
 	Butterfly butterfly = null;
 	Caterpillar caterpillar = null;
+	Dog dog = null;
+	Cat cat = null;
+	AnimalStatsDTO animalStatsDTO = null;
 	
 	@Before
 	public void setUp() {
@@ -44,6 +51,8 @@ public class AnimalFarmTester {
 		frog = new Frog();
 		butterfly = new Butterfly();
 		caterpillar = new Caterpillar();
+		dog = new Dog();
+		cat = new Cat();
 	}
 	@Test
 	public void testDuck() {
@@ -157,6 +166,37 @@ public class AnimalFarmTester {
 		assertNotEquals("Woof, woof", caterpillar.getSound());
 	}
 	
+	@Test
+	public void testDog() {
+		assertFalse(dog instanceof IFlyable);
+		assertFalse(dog instanceof ISwimmable);
+		assertTrue(dog instanceof ISingable);
+		assertTrue(dog instanceof IWalkable);
+		
+		assertEquals("Woof, woof", dog.getSound());
+	}
+	
+	@Test
+	public void testCat() {
+		assertFalse(cat instanceof IFlyable);
+		assertFalse(cat instanceof ISwimmable);
+		assertTrue(cat instanceof ISingable);
+		assertTrue(cat instanceof IWalkable);
+		
+		assertNotEquals("Woof, woof", cat.getSound());
+		assertEquals("Meow", cat.getSound());
+	}
+	
+	@Test
+	public void testAnimalFarmStatsMngr() {
+		animalStatsDTO = AnimalFarmStatsMngr.getStatistics();
+		
+		assertEquals(7, animalStatsDTO.getSingableCount());
+		assertEquals(7, animalStatsDTO.getWalkableCount());
+		assertEquals(5, animalStatsDTO.getSwimmableCount());
+		assertEquals(3, animalStatsDTO.getFlyableCount());
+	}
+	
 	@After
 	public void tearDown() {
 		duck = null;
@@ -169,6 +209,8 @@ public class AnimalFarmTester {
 		frog = null;
 		butterfly = null;
 		caterpillar = null;
-		
+		dog = null;
+		cat = null;
+		animalStatsDTO = null;
 	}
 }
