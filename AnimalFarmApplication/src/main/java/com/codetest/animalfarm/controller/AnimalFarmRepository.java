@@ -34,22 +34,17 @@ public class AnimalFarmRepository {
 		ApiResponse apiResponse = new ApiResponse();
 		try {
 			if (!StringUtils.isEmpty(animalId)) {
-				if (!StringUtils.isEmpty(animalId)) {
-					Optional<AnimalDTO> animalOpt = animalFarmService.getAnimal(animalId);
-					if (animalOpt.isPresent()) {
-						apiResponse.setHttpStatus(HttpStatus.OK.value());
-						apiResponse.setMessage("Animal found in the farm");
-						apiResponse.setResponseObj(animalOpt.get());
-					} else {
-						apiResponse.setHttpStatus(HttpStatus.NO_CONTENT.value());
-						apiResponse.setMessage("Animal not found in the farm");
-					}
+				Optional<AnimalDTO> animalOpt = animalFarmService.getAnimal(animalId);
+				if (animalOpt.isPresent()) {
+					apiResponse.setHttpStatus(HttpStatus.OK.value());
+					apiResponse.setMessage("Animal found in the farm");
+					apiResponse.setResponseObj(animalOpt.get());
 				} else {
 					apiResponse.setHttpStatus(HttpStatus.NO_CONTENT.value());
 					apiResponse.setMessage("Animal not found in the farm");
 				}
 			} else {
-				apiResponse.setHttpStatus(HttpStatus.BAD_REQUEST.value());
+				apiResponse.setHttpStatus(HttpStatus.NO_CONTENT.value());
 				apiResponse.setMessage("Animal not found in the farm");
 			}
 		} catch (Exception e) {
