@@ -21,9 +21,9 @@ public class Chicken extends Bird {
 		return this;
 	}
 	
-//	public Chicken addTongue(String tongue) {
-//		tongue = (StringUtils.isEmpty(tongue)) ? "ENGLISH" : tongue;
-//		setSound("M".equals(gender) ? (RoosterSoundEnum.getEnum(tongue.toUpperCase()) != null ? RoosterSoundEnum.getEnum(tongue.toUpperCase()).sound() : "Cock-a-doodle-doo") : "Cluck, cluck");
-//		return this;
-//	}
+	public Chicken addTongue(String tongue) {
+		tongue = (StringUtils.isEmpty(tongue)) ? "ENGLISH" : tongue;
+		setSound("M".equals(gender) ? (RoosterSoundEnum.getEnum(tongue.toUpperCase()) != null ? RoosterSoundEnum.getEnum(tongue.toUpperCase()).sound() : "Cock-a-doodle-doo") : "Cluck, cluck");
+		return this;
+	}
 }

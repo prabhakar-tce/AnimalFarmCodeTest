@@ -72,14 +72,14 @@ public class AnimalFarmTester {
 		assertTrue(rooster instanceof IWalkable);
 		
 		assertEquals("Cock-a-doodle-doo", rooster.getSound());
-//		rooster.addTongue("DANISH");
-//		assertEquals("kykyliky", rooster.getSound());
-//		rooster.addTongue("GERMAN");
-//		assertEquals("kikeriki", rooster.getSound());
-//		rooster.addTongue("tamil");
-//		assertEquals("kokoroko", rooster.getSound());
-//		rooster.addTongue("xxxx");
-//		assertEquals("Cock-a-doodle-doo", rooster.getSound());
+		rooster.addTongue("DANISH");
+		assertEquals("kykyliky", rooster.getSound());
+		rooster.addTongue("GERMAN");
+		assertEquals("kikeriki", rooster.getSound());
+		rooster.addTongue("tamil");
+		assertEquals("kokoroko", rooster.getSound());
+		rooster.addTongue("xxxx");
+		assertEquals("Cock-a-doodle-doo", rooster.getSound());
 	}
 	
 	@Test
@@ -90,8 +90,8 @@ public class AnimalFarmTester {
 		assertTrue(chicken instanceof IWalkable);
 		
 		assertEquals("Cluck, cluck", chicken.getSound());
-//		chicken.addTongue("DANISH");
-//		assertNotEquals("kykyliky", rooster.getSound());
+		chicken.addTongue("DANISH");
+		assertNotEquals("kykyliky", rooster.getSound());
 	}
 	@Test
 	public void testParrot() {
