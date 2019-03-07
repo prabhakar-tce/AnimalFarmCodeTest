@@ -6,6 +6,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.codetest.animalfarm.model.Butterfly;
+import com.codetest.animalfarm.model.Caterpillar;
 import com.codetest.animalfarm.model.Chicken;
 import com.codetest.animalfarm.model.ClownFish;
 import com.codetest.animalfarm.model.Dolphin;
@@ -27,6 +29,9 @@ public class AnimalFarmTester {
 	ClownFish clownFish = null;
 	Dolphin dolphin = null;
 	Frog frog = null;
+	Butterfly butterfly = null;
+	Caterpillar caterpillar = null;
+	
 	@Before
 	public void setUp() {
 		duck = new Duck();
@@ -37,6 +42,8 @@ public class AnimalFarmTester {
 		clownFish = new ClownFish();
 		dolphin = new Dolphin();
 		frog = new Frog();
+		butterfly = new Butterfly();
+		caterpillar = new Caterpillar();
 	}
 	@Test
 	public void testDuck() {
@@ -131,6 +138,25 @@ public class AnimalFarmTester {
 		assertEquals("Croak, croak", frog.getSound());
 	}
 	
+	@Test
+	public void testButterfly() {
+		assertTrue(butterfly instanceof IFlyable);
+		assertFalse(butterfly instanceof ISwimmable);
+		assertFalse(butterfly instanceof ISingable);
+		assertFalse(butterfly instanceof IWalkable);
+		
+		assertNotEquals("Woof, woof", butterfly.getSound());
+	}
+	@Test
+	public void testCaterpillar() {
+		assertFalse(caterpillar instanceof IFlyable);
+		assertFalse(caterpillar instanceof ISwimmable);
+		assertFalse(caterpillar instanceof ISingable);
+		assertTrue(caterpillar instanceof IWalkable);
+		
+		assertNotEquals("Woof, woof", caterpillar.getSound());
+	}
+	
 	@After
 	public void tearDown() {
 		duck = null;
@@ -141,6 +167,8 @@ public class AnimalFarmTester {
 		clownFish = null;
 		dolphin = null;
 		frog = null;
+		butterfly = null;
+		caterpillar = null;
 		
 	}
 }
