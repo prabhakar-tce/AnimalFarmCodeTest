@@ -9,14 +9,14 @@ Steps for execution:
 - Execute this command : java -Dserver.port=8091 -jar AnimalFarmApplication-1.0.jar
 - change 'server.port' parameter for execution port
 
-Below are the few REST API URLs for querying farm Animal :
+Below are the few REST API end-points for querying farm Animal :
 http://localhost:8091/animal/DUCK
 http://localhost:8091/animal/CHICKEN
 http://localhost:8091/animal/ROOSTER
 http://localhost:8091/animal/DOG
 http://localhost:8091/animal/CLOWNFISH
 
-Below is the REST API URL for Animal farm statistics:
+Below is the REST API end-point for Animal farm statistics:
 http://localhost:8091/animal/statistics
 
 Documents to refer:
